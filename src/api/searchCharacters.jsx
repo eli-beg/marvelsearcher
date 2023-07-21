@@ -11,17 +11,14 @@ const getCharacterByName = () => {
 
 const getTotalNumberOfCharacters = () => {
   return axios.get(
-    `http://gateway.marvel.com/v1/public/characters?ts=1000&apikey=${apiKey}&hash=${apiHash}&limit=1`
+    `https://gateway.marvel.com/v1/public/characters?ts=1000&apikey=${apiKey}&hash=${apiHash}&limit=1`
   );
 };
 
 const getRandomCharacter = (randomIndex) => {
   return axios.get(
-    `http://gateway.marvel.com/v1/public/characters?offset=${randomIndex}&ts=1000&apikey=${apiKey}&hash=${apiHash}&limit=1`
+    `https://gateway.marvel.com/v1/public/characters?offset=${randomIndex}&ts=1000&apikey=${apiKey}&hash=${apiHash}&limit=1`
   );
 };
 
 export { getCharacterByName, getTotalNumberOfCharacters, getRandomCharacter };
-
-// const data = numberOfCharacters.data.data.total;
-//       const randomIndex = Math.floor(Math.random() * data) + 1;
