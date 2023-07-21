@@ -4,31 +4,43 @@ import {
   getTotalNumberOfCharacters,
 } from "../../api/searchCharacters";
 import { getRandomIndex } from "../../utils/getRandomIndex";
+import { CardItem } from "../CardItem/CardItem";
+import { parseCharacterData } from "../../utils/parseCharacterData";
 
 const HomeFunctionalComponent = () => {
-  const [randomCharacter, setRandomCharacter] = useState({});
+  const [randomCharacter, setRandomCharacter] = useState(null);
 
   const getNumberOfCharacters = useCallback(async () => {
     try {
       const { data } = await getTotalNumberOfCharacters();
-      if (data.data.total) {
-        const randomIndex = getRandomIndex(data.data.total);
+      const total = data.data.total;
+      if (total) {
+        const randomIndex = getRandomIndex(total);
         const { data } = await getRandomCharacter(randomIndex);
         if (data.data.results.length >= 1) {
-          setRandomCharacter(data.data.results[0]);
+          const character = parseCharacterData(data.data.results[0]);
+          setRandomCharacter(character);
         }
       }
     } catch (error) {
       console.log(error);
     }
   }, []);
-  console.log(randomCharacter);
 
   useEffect(() => {
     getNumberOfCharacters();
   }, [getNumberOfCharacters]);
 
-  return <div>hola homeee</div>;
+  return (
+    <>
+      {randomCharacter && (
+        <CardItem
+          name={randomCharacter.name}
+          urlImage={randomCharacter.urlImage}
+        />
+      )}
+    </>
+  );
 };
 
 export default HomeFunctionalComponent;
