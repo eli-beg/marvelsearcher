@@ -1,12 +1,13 @@
 import { Outlet } from "react-router-dom";
-import Header from "../components/Header/Header";
+import { MainContainer } from "../styles/style";
+import HeaderFunctionalComponent from "../components/Header/HeaderFunctionalComponent";
 
 const MainLayout = () => {
   return (
-    <>
-      <Header />
+    <MainContainer>
+      <HeaderFunctionalComponent />
       <Outlet />
-    </>
+    </MainContainer>
   );
 };
 
