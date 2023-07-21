@@ -1,9 +1,4 @@
-import {
-  LogoImage,
-  VerticalSeparator,
-  Header,
-  Input,
-} from "../../styles/style";
+import { LogoImage, VerticalSeparator, Header, Input } from "./styled";
 import logo from "../../assets/Marvel-Comics-logo.png";
 import { FavIcon, SearchIcon } from "../iconss";
 
