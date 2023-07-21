@@ -9,22 +9,19 @@ const getCharacterByName = () => {
   );
 };
 
-const getRandomCharacter = async () => {
-  try {
-    const numberOfCharacters = await axios.get(
-      `http://gateway.marvel.com/v1/public/characters?ts=1000&apikey=${apiKey}&hash=${apiHash}&limit=1`
-    );
-
-    if (numberOfCharacters) {
-      const data = numberOfCharacters.data.data.total;
-      const randomIndex = Math.floor(Math.random() * data) + 1;
-      return await axios.get(
-        `http://gateway.marvel.com/v1/public/characters?offset=${randomIndex}&ts=1000&apikey=${apiKey}&hash=${apiHash}&limit=1`
-      );
-    }
-  } catch (error) {
-    console.log(error);
-  }
+const getTotalNumberOfCharacters = () => {
+  return axios.get(
+    `http://gateway.marvel.com/v1/public/characters?ts=1000&apikey=${apiKey}&hash=${apiHash}&limit=1`
+  );
 };
 
-export { getCharacterByName, getRandomCharacter };
+const getRandomCharacter = (randomIndex) => {
+  return axios.get(
+    `http://gateway.marvel.com/v1/public/characters?offset=${randomIndex}&ts=1000&apikey=${apiKey}&hash=${apiHash}&limit=1`
+  );
+};
+
+export { getCharacterByName, getTotalNumberOfCharacters, getRandomCharacter };
+
+// const data = numberOfCharacters.data.data.total;
+//       const randomIndex = Math.floor(Math.random() * data) + 1;
