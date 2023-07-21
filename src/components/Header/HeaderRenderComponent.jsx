@@ -5,7 +5,7 @@ import {
   Input,
 } from "../../styles/style";
 import logo from "../../assets/Marvel-Comics-logo.png";
-import { FavIcon, SearchIcon } from "../icons";
+import { FavIcon, SearchIcon } from "../iconss";
 
 const HeaderRenderComponent = () => {
   return (
