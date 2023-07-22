@@ -3,9 +3,9 @@ import axios from "axios";
 const apiKey = import.meta.env.VITE_API_KEY;
 const apiHash = import.meta.env.VITE_API_HASH;
 
-const getCharacterByName = () => {
+const getCharacterByName = (search) => {
   return axios.get(
-    `https://gateway.marvel.com:443/v1/public/characters?ts=1000&nameStartsWith=spider&apikey=${apiKey}&hash=${apiHash}`
+    `https://gateway.marvel.com:443/v1/public/characters?ts=1000&nameStartsWith=${search}&apikey=${apiKey}&hash=${apiHash}`
   );
 };
 
