@@ -12,6 +12,7 @@ export const SearchIcon = () => {
   );
 };
 
-export const FavIcon = () => {
-  return <FontAwesomeIcon icon={faStar} color={"#a8a8a8"} fontSize={"25px"} />;
+export const FavIcon = (props) => {
+  const { color } = props;
+  return <FontAwesomeIcon icon={faStar} color={color} fontSize={"25px"} />;
 };

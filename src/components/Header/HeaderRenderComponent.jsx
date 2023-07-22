@@ -1,6 +1,6 @@
 import { LogoImage, VerticalSeparator, Header, Input } from "./styled";
 import logo from "../../assets/Marvel-Comics-logo.png";
-import { FavIcon, SearchIcon } from "../iconss";
+import { FavIcon, SearchIcon } from "../icons";
 
 const HeaderRenderComponent = () => {
   return (
@@ -9,7 +9,7 @@ const HeaderRenderComponent = () => {
       <VerticalSeparator />
       <SearchIcon />
       <Input placeholder="Buscar" />
-      <FavIcon />
+      <FavIcon color={"#a8a8a8"} />
       <VerticalSeparator />
     </Header>
   );

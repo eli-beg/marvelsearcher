@@ -55,3 +55,10 @@ export const Title = styled.p`
   z-index: 999;
   margin-left: 12px;
 `;
+
+export const FavIconContainer = styled.div`
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  z-index: 999;
+`;
