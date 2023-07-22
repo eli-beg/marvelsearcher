@@ -3,9 +3,10 @@ import styled from "styled-components";
 export const Card = styled.div`
   width: 256px;
   height: 380px;
-  border-radius: 5px;
+  border-radius: 4px;
   overflow: hidden;
   position: relative;
+  margin: 20px;
 `;
 export const ItemImage = styled.img`
   width: 100%;

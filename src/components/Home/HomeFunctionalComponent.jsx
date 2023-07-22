@@ -4,11 +4,11 @@ import {
   getTotalNumberOfCharacters,
 } from "../../api/searchCharacters";
 import { getRandomIndex } from "../../utils/getRandomIndex";
-import { CardItem } from "../CardItem/CardItem";
 import { parseCharacterData } from "../../utils/parseCharacterData";
+import CardsGridComponent from "../CardsGrid/CardsGridComponent";
 
 const HomeFunctionalComponent = () => {
-  const [randomCharacter, setRandomCharacter] = useState(null);
+  const [randomCharacter, setRandomCharacter] = useState([]);
 
   const getNumberOfCharacters = useCallback(async () => {
     try {
@@ -19,7 +19,7 @@ const HomeFunctionalComponent = () => {
         const { data } = await getRandomCharacter(randomIndex);
         if (data.data.results.length >= 1) {
           const character = parseCharacterData(data.data.results[0]);
-          setRandomCharacter(character);
+          setRandomCharacter([character]);
         }
       }
     } catch (error) {
@@ -32,14 +32,7 @@ const HomeFunctionalComponent = () => {
   }, [getNumberOfCharacters]);
 
   return (
-    <>
-      {randomCharacter && (
-        <CardItem
-          name={randomCharacter.name}
-          urlImage={randomCharacter.urlImage}
-        />
-      )}
-    </>
+    <>{randomCharacter && <CardsGridComponent items={randomCharacter} />}</>
   );
 };
 
