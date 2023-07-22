@@ -35,6 +35,6 @@ export const Input = styled.input`
   }
 `;
 
-export const FormContainer = styled.form`
+export const FormContainer = styled.div`
   flex-grow: 1;
 `;
