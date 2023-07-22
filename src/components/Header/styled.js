@@ -11,6 +11,7 @@ export const Header = styled.header`
   top: 0;
   position: fixed;
   width: 100%;
+  z-index: 2;
 `;
 
 export const LogoImage = styled.img`
@@ -25,8 +26,15 @@ export const VerticalSeparator = styled.div`
 `;
 
 export const Input = styled.input`
-  flex-grow: 1;
+  width: 90%;
   height: 30px;
   margin: 5px 20px;
-  border-style: none;
+  border: 0px;
+  &:focus {
+    outline: none;
+  }
+`;
+
+export const FormContainer = styled.form`
+  flex-grow: 1;
 `;
