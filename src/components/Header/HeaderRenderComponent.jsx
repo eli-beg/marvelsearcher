@@ -26,7 +26,7 @@ const HeaderRenderComponent = (props) => {
           />
         </form>
       </FormContainer>
-      <FavIcon color={"#a8a8a8"} />
+      <FavIcon color={"#a8a8a8"} size={"25px"} />
       <VerticalSeparator />
     </Header>
   );

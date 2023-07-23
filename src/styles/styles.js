@@ -1,13 +1,11 @@
 import { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
-  @font-face {
-    font-family: 'CardFont';
-    src: url('../assets/fonts/FontsFree-Net-sf-ui-text-regular-58646b56a688c.ttf') format('ttf');
-  }
+ 
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
 
   body {
-    font-family: 'CardFont', sans-serif;
+    font-family: 'Monserrat', sans-serif;
   }
 `;
 

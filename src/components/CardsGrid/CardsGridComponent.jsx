@@ -2,7 +2,7 @@ import { CardItem } from "../CardItem/CardItem";
 import { CardsGrid } from "./styled";
 
 const CardsGridComponent = (props) => {
-  const { items, handleOpenModal } = props;
+  const { items, openModalComicsList } = props;
 
   return (
     <CardsGrid>
@@ -12,7 +12,7 @@ const CardsGridComponent = (props) => {
             <CardItem
               key={item.id}
               item={item}
-              handleOpenModal={handleOpenModal}
+              openModalComicsList={openModalComicsList}
             />
           );
         })}

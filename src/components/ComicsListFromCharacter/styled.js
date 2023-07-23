@@ -18,13 +18,31 @@ export const ModalContainer = styled.div`
   height: 448px;
   border-radius: 5px;
   background-color: white;
+  padding: 0px 10px;
 `;
 
 export const Header = styled.div`
   height: 15%;
-  background-color: pink;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 15px;
 `;
 export const ModalContent = styled.div`
-  height: 80%;
-  background-color: grey;
+  height: 85%;
+  overflow-y: auto;
+  &::-webkit-scrollbar {
+    width: 5px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: #797979;
+    border-radius: 20px;
+  }
+`;
+
+export const Title = styled.div`
+  font-weight: 600;
+  font-size: 20px;
+  color: #505050;
 `;

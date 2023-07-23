@@ -1,6 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { faStar } from "@fortawesome/free-regular-svg-icons";
+import { faXmark } from "@fortawesome/free-solid-svg-icons";
 
 export const SearchIcon = () => {
   return (
@@ -13,6 +14,11 @@ export const SearchIcon = () => {
 };
 
 export const FavIcon = (props) => {
-  const { color } = props;
-  return <FontAwesomeIcon icon={faStar} color={color} fontSize={"25px"} />;
+  const { color, size } = props;
+  return <FontAwesomeIcon icon={faStar} color={color} fontSize={size} />;
+};
+
+export const CloseIcon = (props) => {
+  const { color, size } = props;
+  return <FontAwesomeIcon icon={faXmark} fontSize={size} />;
 };

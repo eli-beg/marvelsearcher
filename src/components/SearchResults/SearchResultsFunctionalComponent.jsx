@@ -10,8 +10,10 @@ const SearchResultsFunctionalComponent = () => {
     dataCharacters,
     searchData,
     selectedCard,
-    handleOpenModal,
+    openModalComicsList,
     comicsListByCharacter,
+    closeModalComicsList,
+    isLoading,
   } = useContext(SearchContext);
 
   const params = useParams();
@@ -24,11 +26,13 @@ const SearchResultsFunctionalComponent = () => {
     <>
       <CardsGridComponent
         items={dataCharacters}
-        handleOpenModal={handleOpenModal}
+        openModalComicsList={openModalComicsList}
       />
       <ComicsListFromCharacter
         selectedCard={selectedCard}
         comicsListByCharacter={comicsListByCharacter}
+        closeModalComicsList={closeModalComicsList}
+        isLoading={isLoading}
       />
     </>
   );

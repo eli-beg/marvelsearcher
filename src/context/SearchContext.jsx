@@ -2,6 +2,7 @@ import { createContext, useState } from "react";
 import { getCharacterByName } from "../api/searchCharacters";
 import { parseCharacterData } from "../utils/parseCharacterData";
 import { getComicsListById } from "../api/searchComics";
+import { parseComicsData } from "../utils/parseComicsData";
 // import { getComicsByName } from "../api/searchComics";
 
 export const SearchContext = createContext();
@@ -9,8 +10,9 @@ export const SearchContext = createContext();
 export const SearchProvider = ({ children }) => {
   //   const [dataComics, setDataComics] = useState([]);
   const [dataCharacters, setDataCharacters] = useState([]);
-  const [selectedCard, setSelectedCard] = useState(null);
+  const [selectedCard, setSelectedCard] = useState(false);
   const [comicsListByCharacter, setComicsListByCharacter] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   const searchData = async (inputValue) => {
     try {
@@ -30,19 +32,26 @@ export const SearchProvider = ({ children }) => {
   };
 
   const searchDataComics = async (id) => {
+    setIsLoading(true);
     try {
       const comicsData = await getComicsListById(id);
-
-      setComicsListByCharacter(comicsData.data.data.results);
-      console.log("llamada", comicsData);
+      const arrayComics = parseComicsData(comicsData.data.data.results);
+      setComicsListByCharacter(arrayComics);
+      setIsLoading(false);
     } catch (error) {
       console.log(error);
+      setIsLoading(false);
     }
   };
 
-  const handleOpenModal = (item) => {
+  const openModalComicsList = (item) => {
     setSelectedCard(item);
     searchDataComics(item.id);
+  };
+
+  const closeModalComicsList = () => {
+    setSelectedCard(false);
+    setComicsListByCharacter([]);
   };
 
   return (
@@ -50,9 +59,11 @@ export const SearchProvider = ({ children }) => {
       value={{
         dataCharacters,
         searchData,
-        handleOpenModal,
+        openModalComicsList,
         selectedCard,
         comicsListByCharacter,
+        closeModalComicsList,
+        isLoading,
       }}
     >
       {children}
