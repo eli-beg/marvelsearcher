@@ -2,14 +2,18 @@ import { CardItem } from "../CardItem/CardItem";
 import { CardsGrid } from "./styled";
 
 const CardsGridComponent = (props) => {
-  const { items } = props;
+  const { items, handleOpenModal } = props;
 
   return (
     <CardsGrid>
       {items &&
         items.map((item) => {
           return (
-            <CardItem key={item.id} name={item.name} urlImage={item.urlImage} />
+            <CardItem
+              key={item.id}
+              item={item}
+              handleOpenModal={handleOpenModal}
+            />
           );
         })}
     </CardsGrid>

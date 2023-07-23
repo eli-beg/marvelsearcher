@@ -8,5 +8,6 @@ export const parseCharacterData = (character) => {
       character.thumbnail.path,
       character.thumbnail.extension
     ),
+    comicsUrls: character.comics.items,
   };
 };

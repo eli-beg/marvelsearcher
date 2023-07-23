@@ -9,15 +9,15 @@ import {
 import { FavIcon } from "../icons";
 
 export const CardItem = (props) => {
-  const { name, urlImage } = props;
+  const { item, handleOpenModal } = props;
 
   return (
-    <Card>
+    <Card onClick={() => handleOpenModal(item)}>
       <FavIconContainer>
         <FavIcon color={"white"} />
       </FavIconContainer>
-      <Title>{name}</Title>
-      <ItemImage src={urlImage} alt="img not found" />
+      <Title>{item.name}</Title>
+      <ItemImage src={item.urlImage} alt="img not found" />
       <CoverShadowToTop />
       <CoverShadowTopRight />
     </Card>

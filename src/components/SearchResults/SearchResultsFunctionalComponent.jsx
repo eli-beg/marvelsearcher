@@ -3,9 +3,16 @@ import { SearchContext } from "../../context/SearchContext";
 import { useParams } from "react-router-dom";
 
 import CardsGridComponent from "../CardsGrid/CardsGridComponent";
+import ComicsListFromCharacter from "../ComicsListFromCharacter/ComicsListFromCharacter";
 
 const SearchResultsFunctionalComponent = () => {
-  const { dataCharacters, searchData } = useContext(SearchContext);
+  const {
+    dataCharacters,
+    searchData,
+    selectedCard,
+    handleOpenModal,
+    comicsListByCharacter,
+  } = useContext(SearchContext);
 
   const params = useParams();
 
@@ -13,7 +20,18 @@ const SearchResultsFunctionalComponent = () => {
     searchData(params.inputValue);
   }, [params.inputValue]);
 
-  return <CardsGridComponent items={dataCharacters} />;
+  return (
+    <>
+      <CardsGridComponent
+        items={dataCharacters}
+        handleOpenModal={handleOpenModal}
+      />
+      <ComicsListFromCharacter
+        selectedCard={selectedCard}
+        comicsListByCharacter={comicsListByCharacter}
+      />
+    </>
+  );
 };
 
 export default SearchResultsFunctionalComponent;
