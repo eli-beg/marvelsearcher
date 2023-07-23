@@ -1,8 +1,7 @@
 import { createContext, useState } from "react";
 import { getCharacterByName } from "../api/searchCharacters";
 import { parseCharacterData } from "../utils/parseCharacterData";
-import { parseComicsUrls } from "../utils/parseComicsUrls";
-import { getComicsById } from "../api/searchComics";
+import { getComicsListById } from "../api/searchComics";
 // import { getComicsByName } from "../api/searchComics";
 
 export const SearchContext = createContext();
@@ -23,18 +22,19 @@ export const SearchProvider = ({ children }) => {
         parseCharacterData(c)
       );
       setDataCharacters(characters);
+      console.log(characters);
       //   setDataComics(comicsData.data.data.results);
     } catch (error) {
       console.log(error);
     }
   };
 
-  const searchDataComics = async (item) => {
+  const searchDataComics = async (id) => {
     try {
-      const comicsIds = parseComicsUrls(item.comicsUrls);
-      const promisesArray = comicsIds.map((id) => getComicsById(id));
-      const comicsData = await Promise.all(promisesArray);
-      setComicsListByCharacter(comicsData);
+      const comicsData = await getComicsListById(id);
+
+      setComicsListByCharacter(comicsData.data.data.results);
+      console.log("llamada", comicsData);
     } catch (error) {
       console.log(error);
     }
@@ -42,7 +42,7 @@ export const SearchProvider = ({ children }) => {
 
   const handleOpenModal = (item) => {
     setSelectedCard(item);
-    searchDataComics(item);
+    searchDataComics(item.id);
   };
 
   return (

@@ -3,6 +3,7 @@ import { ModalBackdrop, ModalContainer } from "./styled";
 
 const ComicsListModal = (props) => {
   const { selectedCard } = props;
+
   return (
     <ModalBackdrop open>
       <ModalContainer>

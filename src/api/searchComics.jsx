@@ -9,10 +9,10 @@ const getComicsByName = (search) => {
   );
 };
 
-const getComicsById = (id) => {
+const getComicsListById = (id) => {
   return axios.get(
-    `https://gateway.marvel.com/v1/public/comics/${id}?ts=1000&apikey=${apiKey}&hash=${apiHash}`
+    `https://gateway.marvel.com/v1/public/characters/${id}/comics?orderBy=onsaleDate&ts=1000&apikey=${apiKey}&hash=${apiHash}`
   );
 };
 
-export { getComicsByName, getComicsById };
+export { getComicsByName, getComicsListById };
