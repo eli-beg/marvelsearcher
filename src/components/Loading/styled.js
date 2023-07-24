@@ -17,4 +17,6 @@ export const LoadingContainer = styled.div`
   width: 30px;
   height: 30px;
   animation: ${spinAnimation} 1s linear infinite;
+  align-self: center;
+  justify-self: center;
 `;
