@@ -29,9 +29,7 @@ export const Title = styled.div`
 export const Description = styled.p`
   font-size: 12px;
   height: 48px;
-  font-weight: 400;
   line-height: 1.4;
-  color: #505050;
   margin: 3px 0px;
   text-overflow: ellipsis;
   overflow: hidden;

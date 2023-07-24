@@ -74,16 +74,18 @@ export const SearchProvider = ({ children }) => {
       setIsLoadingModal(false);
     } catch (error) {
       console.log(error);
-      setIsLoading(false);
+      // setIsLoading(false);
     }
   };
 
   // Function to search data of a comic by url
   const searchDataComicByUrl = async (id) => {
+    setIsLoading(true);
     try {
       const comicData = await getComictById(id);
       const parseado = parseComicDataPreview(comicData.data.data.results[0]);
       setComicDataPreview(parseado);
+      setIsLoading(false);
     } catch (error) {
       console.log(error);
     }

@@ -21,7 +21,6 @@ const SearchResultsFunctionalComponent = () => {
   const params = useParams();
 
   const navigateToComicPreview = (id) => {
-    console.log("holass");
     navigate(`/comic/${id}`);
   };
 

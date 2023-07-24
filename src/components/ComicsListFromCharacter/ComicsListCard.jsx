@@ -2,11 +2,11 @@ import { FavIcon } from "../icons";
 import {
   CardContainer,
   Content,
-  Description,
   IconContainer,
   Image,
   Title,
 } from "./styledCard";
+import { Description } from "../../styles/theme";
 
 const ComicsListCard = (props) => {
   const { item, navigateToComicPreview } = props;
@@ -21,8 +21,7 @@ const ComicsListCard = (props) => {
             <FavIcon color={"grey"} size={"16px"} />
           </IconContainer>
         </Title>
-
-        <Description>{item.description}</Description>
+        <Description fontSize="12px">{item.description}</Description>
       </Content>
     </CardContainer>
   );

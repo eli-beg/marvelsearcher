@@ -3,11 +3,11 @@ import styled from "styled-components";
 export const Header = styled.header`
   background-color: white;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-  height: 70px;
+  height: 73px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 5px 20px;
+  padding: 0px 20px;
   top: 0;
   position: fixed;
   width: 100%;
