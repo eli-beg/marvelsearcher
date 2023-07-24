@@ -1,19 +1,21 @@
 import { useContext, useEffect } from "react";
-import { SearchContext } from "../../context/SearchContext";
+import { SearchContext } from "../context/SearchContext";
 import { useParams } from "react-router-dom";
 
-import CardsGridComponent from "../CardsGrid/CardsGridComponent";
-import ComicsListFromCharacter from "../ComicsListFromCharacter/ComicsListFromCharacter";
+import CardsGridComponent from "../components/CardsGrid/CardsGridComponent";
+import ComicsListFromCharacter from "../components/ComicsListFromCharacter/ComicsListFromCharacter";
+import Loading from "../components/Loading/Loading";
 
 const SearchResultsFunctionalComponent = () => {
   const {
     dataCharacters,
     searchData,
-    selectedCard,
     openModalComicsList,
+    selectedCard,
     comicsListByCharacter,
     closeModalComicsList,
     isLoading,
+    isLoadingModal,
   } = useContext(SearchContext);
 
   const params = useParams();
@@ -24,15 +26,20 @@ const SearchResultsFunctionalComponent = () => {
 
   return (
     <>
-      <CardsGridComponent
-        items={dataCharacters}
-        openModalComicsList={openModalComicsList}
-      />
+      {" "}
+      {isLoading ? (
+        <Loading />
+      ) : (
+        <CardsGridComponent
+          items={dataCharacters}
+          openModalComicsList={openModalComicsList}
+        />
+      )}
       <ComicsListFromCharacter
         selectedCard={selectedCard}
         comicsListByCharacter={comicsListByCharacter}
         closeModalComicsList={closeModalComicsList}
-        isLoading={isLoading}
+        isLoadingModal={isLoadingModal}
       />
     </>
   );

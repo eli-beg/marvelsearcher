@@ -1,7 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
-import HomeFunctionalComponent from "../components/Home/HomeFunctionalComponent";
-import MainLayout from "../pages/MainLayout";
-import SearchResultsFunctionalComponent from "../components/SearchResults/SearchResultsFunctionalComponent";
+import HomeFunctionalComponent from "../pages/HomeFunctionalComponent";
+import MainLayout from "../components/MainLayout/MainLayout";
+import SearchResultsFunctionalComponent from "../pages/SearchResultsFunctionalComponent";
 
 export const router = createBrowserRouter([
   {

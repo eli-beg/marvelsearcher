@@ -1,6 +1,6 @@
 import { Outlet } from "react-router-dom";
-import { MainContainer } from "../styles/style";
-import HeaderFunctionalComponent from "../components/Header/HeaderFunctionalComponent";
+import { MainContainer } from "../../styles/style";
+import HeaderFunctionalComponent from "../Header/HeaderFunctionalComponent";
 
 const MainLayout = () => {
   return (
