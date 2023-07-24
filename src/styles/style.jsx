@@ -6,6 +6,4 @@ export const MainContainer = styled.main`
   background-color: #f7f8fa;
   display: flex;
   justify-content: center;
-  align-items: center;
-  /* background-color: green; */
 `;
