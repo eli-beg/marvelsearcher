@@ -7,6 +7,7 @@ export const Card = styled.div`
   overflow: hidden;
   position: relative;
   margin: 20px;
+  cursor: pointer;
 `;
 export const ItemImage = styled.img`
   width: 100%;

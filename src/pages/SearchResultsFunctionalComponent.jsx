@@ -1,6 +1,6 @@
 import { useContext, useEffect } from "react";
 import { SearchContext } from "../context/SearchContext";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 import CardsGridComponent from "../components/CardsGrid/CardsGridComponent";
 import ComicsListFromCharacter from "../components/ComicsListFromCharacter/ComicsListFromCharacter";
@@ -17,8 +17,13 @@ const SearchResultsFunctionalComponent = () => {
     isLoading,
     isLoadingModal,
   } = useContext(SearchContext);
-
+  const navigate = useNavigate();
   const params = useParams();
+
+  const navigateToComicPreview = (id) => {
+    console.log("holass");
+    navigate(`/comic/${id}`);
+  };
 
   useEffect(() => {
     searchData(params.inputValue);
@@ -40,6 +45,7 @@ const SearchResultsFunctionalComponent = () => {
         comicsListByCharacter={comicsListByCharacter}
         closeModalComicsList={closeModalComicsList}
         isLoadingModal={isLoadingModal}
+        navigateToComicPreview={navigateToComicPreview}
       />
     </>
   );

@@ -4,7 +4,12 @@ import ModalHeader from "./ModalHeader";
 import { ModalBackdrop, ModalContainer } from "./styled";
 
 const ComicsListModal = (props) => {
-  const { selectedCard, closeModalComicsList, isLoadingModal } = props;
+  const {
+    selectedCard,
+    closeModalComicsList,
+    isLoadingModal,
+    navigateToComicPreview,
+  } = props;
 
   return (
     <ModalBackdrop onClick={closeModalComicsList}>
@@ -14,7 +19,11 @@ const ComicsListModal = (props) => {
           closeModalComicsList={closeModalComicsList}
         />
 
-        {isLoadingModal ? <Loading /> : <ComicsList />}
+        {isLoadingModal ? (
+          <Loading />
+        ) : (
+          <ComicsList navigateToComicPreview={navigateToComicPreview} />
+        )}
       </ModalContainer>
     </ModalBackdrop>
   );

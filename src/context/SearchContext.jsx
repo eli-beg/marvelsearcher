@@ -5,9 +5,11 @@ import {
   getTotalNumberOfCharacters,
 } from "../api/searchCharacters";
 import { parseCharacterData } from "../utils/parseCharacterData";
-import { getComicsListById } from "../api/searchComics";
+import { getComicsListById, getComictById } from "../api/searchComics";
 import { parseComicsData } from "../utils/parseComicsData";
 import { getRandomIndex } from "../utils/getRandomIndex";
+import { parseComicUrl } from "../utils/parseComicUrl";
+import { parseComicDataPreview } from "../utils/parseComicDataPreview";
 // import { getComicsByName } from "../api/searchComics";
 
 export const SearchContext = createContext();
@@ -20,7 +22,9 @@ export const SearchProvider = ({ children }) => {
   const [comicsListByCharacter, setComicsListByCharacter] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [isLoadingModal, setIsLoadingModal] = useState(false);
+  const [comicDataPreview, setComicDataPreview] = useState({});
 
+  // Function to get a random character
   const getNumberOfCharacters = async () => {
     setIsLoading(true);
     try {
@@ -32,7 +36,6 @@ export const SearchProvider = ({ children }) => {
         if (data.data.results.length >= 1) {
           const character = parseCharacterData(data.data.results[0]);
           setRandomCharacter([character]);
-          console.log(character);
           setIsLoading(false);
         }
       }
@@ -40,6 +43,8 @@ export const SearchProvider = ({ children }) => {
       console.log(error);
     }
   };
+
+  // Function to search for data of a character
   const searchData = async (inputValue) => {
     setIsLoading(true);
     try {
@@ -59,6 +64,7 @@ export const SearchProvider = ({ children }) => {
     }
   };
 
+  // Function to search a datalist of comics from a character
   const searchDataComics = async (id) => {
     setIsLoadingModal(true);
     try {
@@ -69,6 +75,17 @@ export const SearchProvider = ({ children }) => {
     } catch (error) {
       console.log(error);
       setIsLoading(false);
+    }
+  };
+
+  // Function to search data of a comic by url
+  const searchDataComicByUrl = async (id) => {
+    try {
+      const comicData = await getComictById(id);
+      const parseado = parseComicDataPreview(comicData.data.data.results[0]);
+      setComicDataPreview(parseado);
+    } catch (error) {
+      console.log(error);
     }
   };
 
@@ -99,6 +116,8 @@ export const SearchProvider = ({ children }) => {
         closeModalComicsList,
         isLoading,
         isLoadingModal,
+        comicDataPreview,
+        searchDataComicByUrl,
       }}
     >
       {children}

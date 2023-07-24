@@ -6,6 +6,7 @@ export const CardContainer = styled.div`
   flex-direction: row;
   justify-content: center;
   margin-bottom: 20px;
+  cursor: pointer;
 `;
 export const Image = styled.img`
   width: 90px;

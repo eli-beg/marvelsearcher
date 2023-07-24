@@ -9,10 +9,10 @@ import {
 } from "./styledCard";
 
 const ComicsListCard = (props) => {
-  const { item } = props;
+  const { item, navigateToComicPreview } = props;
 
   return (
-    <CardContainer>
+    <CardContainer onClick={() => navigateToComicPreview(item.id)}>
       <Image src={item.urlImage} alt="img not found" />
       <Content>
         <Title>

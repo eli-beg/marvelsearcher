@@ -15,4 +15,10 @@ const getComicsListById = (id) => {
   );
 };
 
-export { getComicsByName, getComicsListById };
+const getComictById = (id) => {
+  return axios.get(
+    `https://gateway.marvel.com/v1/public/comics/${id}?ts=1000&apikey=${apiKey}&hash=${apiHash}`
+  );
+};
+
+export { getComicsByName, getComicsListById, getComictById };

@@ -2,6 +2,8 @@ import { useState } from "react";
 import HeaderRenderComponent from "./HeaderRenderComponent";
 
 import { useNavigate } from "react-router-dom";
+import { isURL } from "../../utils/isUrl";
+import { parseComicUrl } from "../../utils/parseComicUrl";
 
 const HeaderFunctionalComponent = () => {
   const [inputValue, setInputValue] = useState("");
@@ -13,7 +15,9 @@ const HeaderFunctionalComponent = () => {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    navigate(`/character/${inputValue}`);
+    isURL(inputValue)
+      ? navigate(`/comic/${parseComicUrl(inputValue)}`)
+      : navigate(`/character/${inputValue}`);
   };
   return (
     <HeaderRenderComponent

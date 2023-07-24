@@ -1,7 +1,12 @@
 import ComicsListModal from "./ComicsListModal";
 
 const ComicsListFromCharacter = (props) => {
-  const { selectedCard, closeModalComicsList, isLoadingModal } = props;
+  const {
+    selectedCard,
+    closeModalComicsList,
+    isLoadingModal,
+    navigateToComicPreview,
+  } = props;
 
   return (
     <>
@@ -10,6 +15,7 @@ const ComicsListFromCharacter = (props) => {
           selectedCard={selectedCard}
           closeModalComicsList={closeModalComicsList}
           isLoadingModal={isLoadingModal}
+          navigateToComicPreview={navigateToComicPreview}
         />
       ) : null}
     </>
