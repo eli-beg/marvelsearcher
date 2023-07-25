@@ -11,6 +11,7 @@ export const FavoritesProvider = ({ children }) => {
 
   const handleAddOrRemoveFavorite = (event, id, item) => {
     event.stopPropagation();
+
     let favoritesArray = getCookie("favorites");
     const modifiedArray = addAndRemoveFavorite(favoritesArray, id);
     const modifiedArrayJSON = JSON.stringify(modifiedArray.array);
@@ -37,7 +38,8 @@ export const FavoritesProvider = ({ children }) => {
       const dataFavorites = favoriteList.map(async (favId) => {
         const { data } = await getCharacterById(favId);
         if (data) {
-          return parseCharacterData(data.data.results[0]);
+          const parseCharacter = parseCharacterData(data.data.results[0]);
+          return { ...parseCharacter, isFavorite: true };
         }
       });
       const resp = await Promise.all(dataFavorites);

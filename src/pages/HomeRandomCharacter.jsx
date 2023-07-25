@@ -15,6 +15,7 @@ const HomeRandomCharacter = () => {
     closeModalComicsList,
     isLoadingModal,
     navigateToComicPreview,
+    checkIsFavoriteIconRandomCharacter,
   } = useContext(SearchContext);
   const { checkCookies, handleAddOrRemoveFavorite } =
     useContext(FavoritesContext);
@@ -31,6 +32,7 @@ const HomeRandomCharacter = () => {
           items={randomCharacter}
           openModalComicsList={openModalComicsList}
           handleAddOrRemoveFavorite={handleAddOrRemoveFavorite}
+          checkIsFavoriteIcon={checkIsFavoriteIconRandomCharacter}
         />
       )}
       <ComicsListFromCharacter

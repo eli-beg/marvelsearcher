@@ -2,8 +2,14 @@ import { CardItem } from "../CardItem/CardItem";
 import { CardsGridContainer } from "./styled";
 
 const CardsGrid = (props) => {
-  const { items, openModalComicsList, handleAddOrRemoveFavorite } = props;
+  const {
+    items,
+    openModalComicsList,
+    handleAddOrRemoveFavorite,
+    checkIsFavoriteIcon,
+  } = props;
 
+  console.log("que esta pasando", items);
   return (
     <CardsGridContainer>
       {items &&
@@ -14,6 +20,7 @@ const CardsGrid = (props) => {
               item={item}
               openModalComicsList={openModalComicsList}
               handleAddOrRemoveFavorite={handleAddOrRemoveFavorite}
+              checkIsFavoriteIcon={checkIsFavoriteIcon}
             />
           );
         })}

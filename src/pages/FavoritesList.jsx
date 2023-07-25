@@ -19,6 +19,7 @@ const FavoritesList = () => {
     closeModalComicsList,
     isLoadingModal,
     navigateToComicPreview,
+    checkIsFavoriteIcon,
   } = useContext(SearchContext);
 
   useEffect(() => {
@@ -34,6 +35,7 @@ const FavoritesList = () => {
           items={favoritesList}
           openModalComicsList={openModalComicsList}
           handleAddOrRemoveFavorite={handleAddOrRemoveFavorite}
+          checkIsFavoriteIcon={checkIsFavoriteIcon}
         />
       )}
       <ComicsListFromCharacter

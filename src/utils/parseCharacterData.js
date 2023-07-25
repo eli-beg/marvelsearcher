@@ -9,5 +9,6 @@ export const parseCharacterData = (character) => {
       character.thumbnail.extension
     ),
     comicsUrls: character.comics.items,
+    isFavorite: false,
   };
 };
