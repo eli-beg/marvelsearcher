@@ -16,6 +16,9 @@ const Description = styled.p`
   font-weight: 400;
   line-height: 1.4;
   color: ${(props) => props.theme.main};
+  /* @media (max-width: 480px) {
+    font-size: 10px;
+  } */
 `;
 
 Title.defaultProps = {
