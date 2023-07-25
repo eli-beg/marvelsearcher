@@ -86,6 +86,7 @@ export const SearchProvider = ({ children }) => {
   };
 
   const openModalComicsList = (item) => {
+    console.log("hola", item);
     setSelectedCard(item);
     searchDataComics(item.id);
   };

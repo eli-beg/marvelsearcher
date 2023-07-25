@@ -23,6 +23,9 @@ const HeaderFunctional = () => {
     getFavoriteList();
     navigate("/favorites");
   };
+  const navigateToHome = () => {
+    navigate("/");
+  };
   return (
     <HeaderRender
       handleInputChange={handleInputChange}
@@ -30,6 +33,7 @@ const HeaderFunctional = () => {
       handleSubmit={handleSubmit}
       getFavoriteList={getFavoriteList}
       navigateToFavoritesList={navigateToFavoritesList}
+      navigateToHome={navigateToHome}
     />
   );
 };

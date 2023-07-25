@@ -46,3 +46,7 @@ export const Title = styled.div`
   font-size: 20px;
   color: #505050;
 `;
+
+export const CloseIconContainer = styled.div`
+  cursor: pointer;
+`;

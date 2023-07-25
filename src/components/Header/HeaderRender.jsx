@@ -15,11 +15,12 @@ const HeaderRender = (props) => {
     inputValue,
     handleSubmit,
     navigateToFavoritesList,
+    navigateToHome,
   } = props;
 
   return (
     <Header>
-      <LogoImage src={logo} alt="img not found" />
+      <LogoImage src={logo} alt="img not found" onClick={navigateToHome} />
       <VerticalSeparator />
       <SearchIcon />
       <FormContainer>

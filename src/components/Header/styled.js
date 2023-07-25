@@ -17,6 +17,7 @@ export const Header = styled.header`
 export const LogoImage = styled.img`
   width: 80px;
   object-fit: contain;
+  cursor: pointer;
 `;
 export const VerticalSeparator = styled.div`
   border-right: 1px solid #a8a8a8;
@@ -40,8 +41,5 @@ export const FormContainer = styled.div`
 `;
 
 export const FavIconContainer = styled.div`
-  /* position: absolute;
-  top: 15px;
-  right: 15px;
-  z-index: 999; */
+  cursor: pointer;
 `;
