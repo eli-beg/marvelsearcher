@@ -9,12 +9,17 @@ export const FavoritesProvider = ({ children }) => {
   const [isLoadingFavorites, setIsLoadingFavorites] = useState(false);
   const [favoritesList, setFavoritesList] = useState([]);
 
-  const handleAddOrRemoveFavorite = (event, id) => {
+  const handleAddOrRemoveFavorite = (event, id, item) => {
     event.stopPropagation();
     let favoritesArray = getCookie("favorites");
     const modifiedArray = addAndRemoveFavorite(favoritesArray, id);
-    const modifiedArrayJSON = JSON.stringify(modifiedArray);
+    const modifiedArrayJSON = JSON.stringify(modifiedArray.array);
     setCookie(modifiedArrayJSON, "userFavorites");
+    modifiedArray.operation === "add"
+      ? setFavoritesList([...favoritesList, item])
+      : setFavoritesList(
+          favoritesList.filter((character) => character.id !== id)
+        );
   };
 
   // Fuction that checks if cookies were saved, if not set cookies with an empty array
