@@ -9,7 +9,6 @@ const CardsGrid = (props) => {
     checkIsFavoriteIcon,
   } = props;
 
-  console.log("que esta pasando", items);
   return (
     <CardsGridContainer>
       {items &&

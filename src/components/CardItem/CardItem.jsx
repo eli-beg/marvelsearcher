@@ -20,7 +20,9 @@ export const CardItem = (props) => {
     <Card onClick={() => openModalComicsList(item)}>
       <FavIconContainer
         onClick={(event) => {
-          handleAddOrRemoveFavorite(event, item.id, item);
+          // Function to add or remove character from favorite list in favoritesContext and cookies
+          handleAddOrRemoveFavorite(event, item);
+
           checkIsFavoriteIcon(item.id);
         }}
       >

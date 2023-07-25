@@ -9,17 +9,17 @@ export const FavoritesProvider = ({ children }) => {
   const [isLoadingFavorites, setIsLoadingFavorites] = useState(false);
   const [favoritesList, setFavoritesList] = useState([]);
 
-  const handleAddOrRemoveFavorite = (event, id, item) => {
+  const handleAddOrRemoveFavorite = (event, item) => {
     event.stopPropagation();
 
     let favoritesArray = getCookie("favorites");
-    const modifiedArray = addAndRemoveFavorite(favoritesArray, id);
+    const modifiedArray = addAndRemoveFavorite(favoritesArray, item.id);
     const modifiedArrayJSON = JSON.stringify(modifiedArray.array);
     setCookie(modifiedArrayJSON, "userFavorites");
     modifiedArray.operation === "add"
       ? setFavoritesList([...favoritesList, item])
       : setFavoritesList(
-          favoritesList.filter((character) => character.id !== id)
+          favoritesList.filter((character) => character.id !== item.id)
         );
   };
 

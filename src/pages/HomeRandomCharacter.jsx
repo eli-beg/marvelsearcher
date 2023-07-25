@@ -7,6 +7,8 @@ import ComicsListFromCharacter from "../components/ComicsListFromCharacter/Comic
 
 const HomeRandomCharacter = () => {
   const {
+    getNumberOfCharacters,
+    cleanRandomCharacterCache,
     isLoading,
     randomCharacter,
     openModalComicsList,
@@ -21,8 +23,14 @@ const HomeRandomCharacter = () => {
     useContext(FavoritesContext);
 
   useEffect(() => {
+    getNumberOfCharacters();
+    return () => cleanRandomCharacterCache();
+  }, [getNumberOfCharacters]);
+
+  useEffect(() => {
     checkCookies();
   }, []);
+
   return (
     <>
       {isLoading ? (

@@ -48,6 +48,10 @@ export const SearchProvider = ({ children }) => {
     }
   }, []);
 
+  const cleanRandomCharacterCache = () => {
+    setRandomCharacter([]);
+  };
+
   // Function to search for data of a character
   const searchData = async (inputValue) => {
     setIsLoading(true);
@@ -97,7 +101,6 @@ export const SearchProvider = ({ children }) => {
   };
 
   const openModalComicsList = (item) => {
-    console.log("hola", item);
     setSelectedCard(item);
     searchDataComics(item.id);
   };
@@ -132,14 +135,15 @@ export const SearchProvider = ({ children }) => {
       : setRandomCharacter([{ ...randomCharacterItem, isFavorite: false }]);
   };
 
-  useEffect(() => {
-    getNumberOfCharacters();
-  }, [getNumberOfCharacters]);
+  // useEffect(() => {
+  //   getNumberOfCharacters();
+  // }, [getNumberOfCharacters]);
 
   return (
     <SearchContext.Provider
       value={{
         getNumberOfCharacters,
+        cleanRandomCharacterCache,
         randomCharacter,
         dataCharacters,
         searchData,
