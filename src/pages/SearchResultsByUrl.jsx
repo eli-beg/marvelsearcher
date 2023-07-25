@@ -4,7 +4,7 @@ import { SearchContext } from "../context/SearchContext";
 import CardComicPreview from "../components/CardComicPreview/CardComicPreview";
 import Loading from "../components/Loading/Loading";
 
-const SearchResultsByUrlFunctionalComponent = () => {
+const SearchResultsByUrl = () => {
   const { searchDataComicByUrl, comicDataPreview, isLoading } =
     useContext(SearchContext);
 
@@ -25,4 +25,4 @@ const SearchResultsByUrlFunctionalComponent = () => {
   );
 };
 
-export default SearchResultsByUrlFunctionalComponent;
+export default SearchResultsByUrl;

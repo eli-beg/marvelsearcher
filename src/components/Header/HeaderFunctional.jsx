@@ -1,11 +1,10 @@
 import { useState } from "react";
-import HeaderRenderComponent from "./HeaderRenderComponent";
-
+import HeaderRender from "./HeaderRender";
 import { useNavigate } from "react-router-dom";
 import { isURL } from "../../utils/isUrl";
 import { parseComicUrl } from "../../utils/parseComicUrl";
 
-const HeaderFunctionalComponent = () => {
+const HeaderFunctional = () => {
   const [inputValue, setInputValue] = useState("");
 
   const navigate = useNavigate();
@@ -20,7 +19,7 @@ const HeaderFunctionalComponent = () => {
       : navigate(`/character/${inputValue}`);
   };
   return (
-    <HeaderRenderComponent
+    <HeaderRender
       handleInputChange={handleInputChange}
       inputValue={inputValue}
       handleSubmit={handleSubmit}
@@ -28,4 +27,4 @@ const HeaderFunctionalComponent = () => {
   );
 };
 
-export default HeaderFunctionalComponent;
+export default HeaderFunctional;

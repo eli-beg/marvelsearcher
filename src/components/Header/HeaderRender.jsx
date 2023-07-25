@@ -8,7 +8,7 @@ import {
 import logo from "../../assets/Marvel-Comics-logo.png";
 import { FavIcon, SearchIcon } from "../icons";
 
-const HeaderRenderComponent = (props) => {
+const HeaderRender = (props) => {
   const { handleInputChange, inputValue, handleSubmit } = props;
 
   return (
@@ -32,4 +32,4 @@ const HeaderRenderComponent = (props) => {
   );
 };
 
-export default HeaderRenderComponent;
+export default HeaderRender;

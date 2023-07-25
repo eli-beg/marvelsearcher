@@ -1,8 +1,8 @@
 import { createBrowserRouter } from "react-router-dom";
-import HomeFunctionalComponent from "../pages/HomeFunctionalComponent";
+import HomeRandomCharacter from "../pages/HomeRandomCharacter";
 import MainLayout from "../components/MainLayout/MainLayout";
-import SearchResultsFunctionalComponent from "../pages/SearchResultsFunctionalComponent";
-import SearchResultsByUrlFunctionalComponent from "../pages/SearchResultsByUrlFunctionalComponent";
+import SearchCharactersResults from "../pages/SearchCharactersResults";
+import SearchResultsByUrl from "../pages/SearchResultsByUrl";
 
 export const router = createBrowserRouter([
   {
@@ -11,15 +11,15 @@ export const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <HomeFunctionalComponent />,
+        element: <HomeRandomCharacter />,
       },
       {
         path: "/character/:inputValue",
-        element: <SearchResultsFunctionalComponent />,
+        element: <SearchCharactersResults />,
       },
       {
         path: "/comic/:id",
-        element: <SearchResultsByUrlFunctionalComponent />,
+        element: <SearchResultsByUrl />,
       },
     ],
   },

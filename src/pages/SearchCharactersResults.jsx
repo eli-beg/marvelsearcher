@@ -2,11 +2,11 @@ import { useContext, useEffect } from "react";
 import { SearchContext } from "../context/SearchContext";
 import { useNavigate, useParams } from "react-router-dom";
 
-import CardsGridComponent from "../components/CardsGrid/CardsGridComponent";
+import CardsGrid from "../components/CardsGrid/CardsGrid";
 import ComicsListFromCharacter from "../components/ComicsListFromCharacter/ComicsListFromCharacter";
 import Loading from "../components/Loading/Loading";
 
-const SearchResultsFunctionalComponent = () => {
+const SearchCharactersResults = () => {
   const {
     dataCharacters,
     searchData,
@@ -34,7 +34,7 @@ const SearchResultsFunctionalComponent = () => {
       {isLoading ? (
         <Loading />
       ) : (
-        <CardsGridComponent
+        <CardsGrid
           items={dataCharacters}
           openModalComicsList={openModalComicsList}
         />
@@ -50,4 +50,4 @@ const SearchResultsFunctionalComponent = () => {
   );
 };
 
-export default SearchResultsFunctionalComponent;
+export default SearchCharactersResults;

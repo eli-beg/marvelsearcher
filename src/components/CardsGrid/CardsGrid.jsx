@@ -1,11 +1,11 @@
 import { CardItem } from "../CardItem/CardItem";
-import { CardsGrid } from "./styled";
+import { CardsGridContainer } from "./styled";
 
-const CardsGridComponent = (props) => {
+const CardsGrid = (props) => {
   const { items, openModalComicsList } = props;
 
   return (
-    <CardsGrid>
+    <CardsGridContainer>
       {items &&
         items.map((item) => {
           return (
@@ -16,7 +16,7 @@ const CardsGridComponent = (props) => {
             />
           );
         })}
-    </CardsGrid>
+    </CardsGridContainer>
   );
 };
-export default CardsGridComponent;
+export default CardsGrid;

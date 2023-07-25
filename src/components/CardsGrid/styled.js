@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const CardsGrid = styled.div`
+export const CardsGridContainer = styled.div`
   top: 148px;
   width: 1280px;
   display: flex;
