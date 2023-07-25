@@ -3,6 +3,7 @@ import HomeRandomCharacter from "../pages/HomeRandomCharacter";
 import MainLayout from "../components/MainLayout/MainLayout";
 import SearchCharactersResults from "../pages/SearchCharactersResults";
 import SearchResultsByUrl from "../pages/SearchResultsByUrl";
+import FavoritesList from "../pages/FavoritesList";
 
 export const router = createBrowserRouter([
   {
@@ -20,6 +21,10 @@ export const router = createBrowserRouter([
       {
         path: "/comic/:id",
         element: <SearchResultsByUrl />,
+      },
+      {
+        path: "/favorites",
+        element: <FavoritesList />,
       },
     ],
   },

@@ -4,12 +4,18 @@ import {
   Header,
   Input,
   FormContainer,
+  FavIconContainer,
 } from "./styled";
 import logo from "../../assets/Marvel-Comics-logo.png";
 import { FavIcon, SearchIcon } from "../icons";
 
 const HeaderRender = (props) => {
-  const { handleInputChange, inputValue, handleSubmit } = props;
+  const {
+    handleInputChange,
+    inputValue,
+    handleSubmit,
+    navigateToFavoritesList,
+  } = props;
 
   return (
     <Header>
@@ -26,7 +32,9 @@ const HeaderRender = (props) => {
           />
         </form>
       </FormContainer>
-      <FavIcon color={"#a8a8a8"} size={"25px"} />
+      <FavIconContainer onClick={navigateToFavoritesList}>
+        <FavIcon color={"#a8a8a8"} size={"25px"} />
+      </FavIconContainer>
       <VerticalSeparator />
     </Header>
   );

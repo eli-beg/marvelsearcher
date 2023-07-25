@@ -5,6 +5,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import CardsGrid from "../components/CardsGrid/CardsGrid";
 import ComicsListFromCharacter from "../components/ComicsListFromCharacter/ComicsListFromCharacter";
 import Loading from "../components/Loading/Loading";
+import { FavoritesContext } from "../context/FavoritesContext";
 
 const SearchCharactersResults = () => {
   const {
@@ -17,6 +18,7 @@ const SearchCharactersResults = () => {
     isLoading,
     isLoadingModal,
   } = useContext(SearchContext);
+  const { handleAddOrRemoveFavorite } = useContext(FavoritesContext);
   const navigate = useNavigate();
   const params = useParams();
 
@@ -37,6 +39,7 @@ const SearchCharactersResults = () => {
         <CardsGrid
           items={dataCharacters}
           openModalComicsList={openModalComicsList}
+          handleAddOrRemoveFavorite={handleAddOrRemoveFavorite}
         />
       )}
       <ComicsListFromCharacter

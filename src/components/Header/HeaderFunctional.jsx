@@ -1,12 +1,13 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import HeaderRender from "./HeaderRender";
 import { useNavigate } from "react-router-dom";
 import { isURL } from "../../utils/isUrl";
 import { parseComicUrl } from "../../utils/parseComicUrl";
+import { FavoritesContext } from "../../context/FavoritesContext";
 
 const HeaderFunctional = () => {
   const [inputValue, setInputValue] = useState("");
-
+  const { getFavoriteList } = useContext(FavoritesContext);
   const navigate = useNavigate();
 
   const handleInputChange = (e) => {
@@ -18,11 +19,17 @@ const HeaderFunctional = () => {
       ? navigate(`/comic/${parseComicUrl(inputValue)}`)
       : navigate(`/character/${inputValue}`);
   };
+  const navigateToFavoritesList = () => {
+    getFavoriteList();
+    navigate("/favorites");
+  };
   return (
     <HeaderRender
       handleInputChange={handleInputChange}
       inputValue={inputValue}
       handleSubmit={handleSubmit}
+      getFavoriteList={getFavoriteList}
+      navigateToFavoritesList={navigateToFavoritesList}
     />
   );
 };

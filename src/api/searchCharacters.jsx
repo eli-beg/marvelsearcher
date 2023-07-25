@@ -23,4 +23,15 @@ const getRandomCharacter = (randomIndex) => {
   );
 };
 
-export { getCharacterByName, getTotalNumberOfCharacters, getRandomCharacter };
+const getCharacterById = (id) => {
+  return axios.get(
+    `${baseURL}/${id}?ts=1000&apikey=${apiKey}&hash=${apiHash}&limit=1`
+  );
+};
+
+export {
+  getCharacterByName,
+  getTotalNumberOfCharacters,
+  getRandomCharacter,
+  getCharacterById,
+};

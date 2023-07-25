@@ -38,3 +38,10 @@ export const Input = styled.input`
 export const FormContainer = styled.div`
   flex-grow: 1;
 `;
+
+export const FavIconContainer = styled.div`
+  /* position: absolute;
+  top: 15px;
+  right: 15px;
+  z-index: 999; */
+`;

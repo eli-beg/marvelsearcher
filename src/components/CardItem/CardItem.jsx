@@ -9,11 +9,15 @@ import {
 import { FavIcon } from "../icons";
 
 export const CardItem = (props) => {
-  const { item, openModalComicsList } = props;
+  const { item, openModalComicsList, handleAddOrRemoveFavorite } = props;
 
   return (
     <Card onClick={() => openModalComicsList(item)}>
-      <FavIconContainer>
+      <FavIconContainer
+        onClick={(event) => {
+          handleAddOrRemoveFavorite(event, item.id);
+        }}
+      >
         <FavIcon color={"white"} size={"25px"} />
       </FavIconContainer>
       <Title>{item.name}</Title>
