@@ -1,46 +1,72 @@
 import styled from "styled-components";
+import { devices } from "../../styles/constants";
+import { Description, Subtext, Title } from "../../styles/theme";
 
 export const Container = styled.div`
   margin-top: 146px;
   width: 80%;
   display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  /* padding-bottom: 40px;
-  @media (max-width: 480px) {
-    flex-direction: column-reverse;
-    align-items: center; */
-  /* width: 90%;
-    height: 100%;
-  } */
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 40px;
+  flex-direction: column-reverse;
+  @media ${devices.sm} {
+    flex-direction: row;
+    align-items: flex-start;
+  }
 `;
 
 export const Image = styled.img`
-  width: 545px;
-  height: 838px;
+  width: 300px;
+  height: 461px;
   object-fit: contain;
-  /* 
-  @media (max-width: 480px) {
-    width: 250px;
-    height: 400px;
-    padding-top: 10px;
-  } */
+
+  @media ${devices.lg} {
+    width: 545px;
+    height: 838px;
+  }
 `;
 
 export const Content = styled.div`
-  padding: 20px 20px;
-  height: 60%;
+  padding: 0px 40px;
   display: flex;
   flex-direction: column;
-  /* @media (max-width: 480px) {
-    width: 100%;
-  } */
+  width: 100%;
+
+  @media ${devices.sm} {
+    height: 100%;
+  }
 `;
 
 export const HeaderContent = styled.div`
-  height: 25%;
-  /* @media (max-width: 480px) {
-    padding: 10px 0px;
+  height: 100%;
+  padding-bottom: 20px;
+  @media ${devices.sm} {
+    padding: 40px 0px;
     height: 15%;
-  } */
+  }
+`;
+
+export const CustomizedTitle = styled(Title)`
+  font-size: 15px;
+
+  @media ${devices.sm} {
+    font-size: 20px;
+  }
+`;
+
+export const CustomizedSubtext = styled(Subtext)`
+  font-size: 15px;
+
+  @media ${devices.sm} {
+    font-size: 20px;
+  }
+`;
+
+export const CustomizedDescription = styled(Description)`
+  font-size: 12px;
+  padding-bottom: 40px;
+  @media ${devices.sm} {
+    font-size: 16px;
+  }
 `;

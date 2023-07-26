@@ -4,6 +4,7 @@ import Loading from "../components/Loading/Loading";
 import { SearchContext } from "../context/SearchContext";
 import { FavoritesContext } from "../context/FavoritesContext";
 import ComicsListFromCharacter from "../components/ComicsListFromCharacter/ComicsListFromCharacter";
+import { useNavigate } from "react-router-dom";
 
 const HomeRandomCharacter = () => {
   const {
@@ -16,16 +17,17 @@ const HomeRandomCharacter = () => {
     comicsListByCharacter,
     closeModalComicsList,
     isLoadingModal,
-    navigateToComicPreview,
+
     checkIsFavoriteIconRandomCharacter,
   } = useContext(SearchContext);
   const { checkCookies, handleAddOrRemoveFavorite } =
     useContext(FavoritesContext);
+  const navigate = useNavigate();
 
   useEffect(() => {
     getNumberOfCharacters();
     return () => cleanRandomCharacterCache();
-  }, [getNumberOfCharacters]);
+  }, []);
 
   useEffect(() => {
     checkCookies();
@@ -34,6 +36,10 @@ const HomeRandomCharacter = () => {
   useEffect(() => {
     return () => closeModalComicsList();
   }, []);
+
+  const navigateToComicPreview = (id) => {
+    navigate(`/comic/${id}`);
+  };
 
   return (
     <>

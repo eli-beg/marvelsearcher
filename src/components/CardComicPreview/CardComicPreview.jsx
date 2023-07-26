@@ -1,6 +1,12 @@
-import { Description, Title } from "../../styles/theme";
 import SecondaryText from "./SecondaryText";
-import { Container, Content, HeaderContent, Image } from "./styled";
+import {
+  Container,
+  Content,
+  CustomizedDescription,
+  CustomizedTitle,
+  HeaderContent,
+  Image,
+} from "./styled";
 
 const CardComicPreview = (props) => {
   const { comicDataPreview } = props;
@@ -10,13 +16,15 @@ const CardComicPreview = (props) => {
       <Image src={comicDataPreview.urlImage} alt="img not found" />
       <Content>
         <HeaderContent>
-          <Title>{comicDataPreview.title}</Title>
+          <CustomizedTitle>{comicDataPreview.title}</CustomizedTitle>
         </HeaderContent>
         <HeaderContent>
           <SecondaryText comicData={comicDataPreview.date}></SecondaryText>
           <SecondaryText comicData={comicDataPreview.creators} />
         </HeaderContent>
-        <Description>{comicDataPreview.description}</Description>
+        <CustomizedDescription>
+          {comicDataPreview.description}
+        </CustomizedDescription>
       </Content>
     </Container>
   );

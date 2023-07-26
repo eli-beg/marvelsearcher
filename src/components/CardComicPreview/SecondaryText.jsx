@@ -1,4 +1,4 @@
-import { Subtext } from "../../styles/theme";
+import { CustomizedSubtext } from "./styled";
 
 const SecondaryText = (props) => {
   const { comicData } = props;
@@ -8,9 +8,9 @@ const SecondaryText = (props) => {
       {comicData
         ? Object.entries(comicData).map(([key, value]) =>
             value ? (
-              <Subtext key={key}>
+              <CustomizedSubtext key={key}>
                 {key}: {value}
-              </Subtext>
+              </CustomizedSubtext>
             ) : null
           )
         : null}

@@ -7,6 +7,7 @@ const GlobalStyle = createGlobalStyle`
   
   body {
     font-family: 'Monserrat', sans-serif;
+    background-color: #f7f8fa;
   }
   
 `;

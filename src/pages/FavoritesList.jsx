@@ -4,6 +4,7 @@ import CardsGrid from "../components/CardsGrid/CardsGrid";
 import { FavoritesContext } from "../context/FavoritesContext";
 import { SearchContext } from "../context/SearchContext";
 import ComicsListFromCharacter from "../components/ComicsListFromCharacter/ComicsListFromCharacter";
+import { useNavigate } from "react-router-dom";
 
 const FavoritesList = () => {
   const {
@@ -18,14 +19,16 @@ const FavoritesList = () => {
     comicsListByCharacter,
     closeModalComicsList,
     isLoadingModal,
-    navigateToComicPreview,
     checkIsFavoriteIcon,
   } = useContext(SearchContext);
+  const navigate = useNavigate();
 
   useEffect(() => {
     getFavoriteList();
   }, []);
-
+  const navigateToComicPreview = (id) => {
+    navigate(`/comic/${id}`);
+  };
   return (
     <>
       {isLoadingFavorites ? (

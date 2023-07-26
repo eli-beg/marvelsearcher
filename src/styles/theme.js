@@ -16,9 +16,12 @@ const Description = styled.p`
   font-weight: 400;
   line-height: 1.4;
   color: ${(props) => props.theme.light};
-  /* @media (max-width: 480px) {
-    font-size: 10px;
-  } */
+`;
+const MainContainer = styled.main`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
 `;
 
 const CoverShadowImageToTop = styled.div`
@@ -53,4 +56,5 @@ export {
   Description,
   invertTheme,
   CoverShadowImageToTop,
+  MainContainer,
 };
