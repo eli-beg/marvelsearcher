@@ -52,8 +52,12 @@ export const SearchProvider = ({ children }) => {
     setRandomCharacter([]);
   };
 
+  const cleanComicsDataPreview = () => {
+    setComicDataPreview({});
+  };
+
   // Function to search for data of a character
-  const searchData = async (inputValue) => {
+  const searchData = useCallback(async (inputValue) => {
     setIsLoading(true);
     try {
       const { data } = await getCharacterByName(inputValue);
@@ -70,7 +74,7 @@ export const SearchProvider = ({ children }) => {
     } finally {
       setIsLoading(false);
     }
-  };
+  }, []);
 
   // Function to search a datalist of comics from a character
   const searchDataComics = async (id) => {
@@ -87,7 +91,7 @@ export const SearchProvider = ({ children }) => {
   };
 
   // Function to search data of a comic by url
-  const searchDataComicByUrl = async (id) => {
+  const searchDataComicByUrl = useCallback(async (id) => {
     setIsLoading(true);
     try {
       const { data } = await getComictById(id);
@@ -98,7 +102,7 @@ export const SearchProvider = ({ children }) => {
     } finally {
       setIsLoading(false);
     }
-  };
+  }, []);
 
   const openModalComicsList = (item) => {
     setSelectedCard(item);
@@ -152,6 +156,7 @@ export const SearchProvider = ({ children }) => {
         searchDataComicByUrl,
         checkIsFavoriteIcon,
         checkIsFavoriteIconRandomCharacter,
+        cleanComicsDataPreview,
       }}
     >
       {children}

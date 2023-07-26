@@ -5,13 +5,20 @@ import CardComicPreview from "../components/CardComicPreview/CardComicPreview";
 import Loading from "../components/Loading/Loading";
 
 const SearchResultsByUrl = () => {
-  const { searchDataComicByUrl, comicDataPreview, isLoading } =
-    useContext(SearchContext);
+  const {
+    searchDataComicByUrl,
+    comicDataPreview,
+    isLoading,
+    cleanComicsDataPreview,
+  } = useContext(SearchContext);
 
   const params = useParams();
 
   useEffect(() => {
     searchDataComicByUrl(params.id);
+    return () => {
+      cleanComicsDataPreview();
+    };
   }, [params.id]);
 
   return (

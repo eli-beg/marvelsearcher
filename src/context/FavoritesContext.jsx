@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useCallback, useState } from "react";
 import { getCookie, setCookie } from "../utils/cookieUtils";
 import { getCharacterById } from "../api/searchCharacters";
 import { parseCharacterData } from "../utils/parseCharacterData";
@@ -30,7 +30,7 @@ export const FavoritesProvider = ({ children }) => {
   };
 
   // Fuction to get the favorite list
-  const getFavoriteList = async () => {
+  const getFavoriteList = useCallback(async () => {
     setIsLoadingFavorites(true);
     const favoriteList = getCookie("favorites");
 
@@ -49,7 +49,7 @@ export const FavoritesProvider = ({ children }) => {
     } finally {
       setIsLoadingFavorites(false);
     }
-  };
+  }, []);
 
   return (
     <FavoritesContext.Provider
