@@ -2,11 +2,11 @@ import { FavIcon } from "../icons";
 import {
   CardContainer,
   Content,
+  CustomizedDescription,
+  CustomizedTitle,
   IconContainer,
   Image,
-  Title,
 } from "./styledCard";
-import { Description } from "../../styles/theme";
 
 const ComicsListCard = (props) => {
   const { item, navigateToComicPreview } = props;
@@ -15,13 +15,13 @@ const ComicsListCard = (props) => {
     <CardContainer onClick={() => navigateToComicPreview(item.id)}>
       <Image src={item.urlImage} alt="img not found" />
       <Content>
-        <Title>
+        <CustomizedTitle>
           {item.title}
           <IconContainer>
             <FavIcon color={"grey"} size={"16px"} />
           </IconContainer>
-        </Title>
-        <Description fontSize="12px">{item.description}</Description>
+        </CustomizedTitle>
+        <CustomizedDescription>{item.description}</CustomizedDescription>
       </Content>
     </CardContainer>
   );

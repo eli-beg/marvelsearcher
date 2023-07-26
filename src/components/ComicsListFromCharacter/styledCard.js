@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Description, Title } from "../../styles/theme";
 
 export const CardContainer = styled.div`
   height: 90px;
@@ -20,15 +21,12 @@ export const Content = styled.div`
   overflow: hidden;
 `;
 
-export const Title = styled.div`
-  font-weight: bold;
+export const CustomizedTitle = styled(Title)`
   font-size: 12px;
-  line-height: 1.5;
-  color: #505050;
 `;
-export const Description = styled.p`
+export const CustomizedDescription = styled(Description)`
   font-size: 12px;
-  height: 48px;
+  height: 50px;
   line-height: 1.4;
   margin: 3px 0px;
   text-overflow: ellipsis;

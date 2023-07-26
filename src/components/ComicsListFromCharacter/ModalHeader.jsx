@@ -1,6 +1,7 @@
+import { Title } from "../../styles/theme";
 import { CloseIcon } from "../icons";
 
-import { CloseIconContainer, Header, Title } from "./styled";
+import { CloseIconContainer, Header } from "./styled";
 
 const ModalHeader = (props) => {
   const { title, closeModalComicsList } = props;

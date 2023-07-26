@@ -128,16 +128,11 @@ export const SearchProvider = ({ children }) => {
   };
 
   const checkIsFavoriteIconRandomCharacter = (id) => {
-    // const value = checkIsFavorite(id);
     const randomCharacterItem = randomCharacter[0];
     checkIsFavorite(id)
       ? setRandomCharacter([{ ...randomCharacterItem, isFavorite: true }])
       : setRandomCharacter([{ ...randomCharacterItem, isFavorite: false }]);
   };
-
-  // useEffect(() => {
-  //   getNumberOfCharacters();
-  // }, [getNumberOfCharacters]);
 
   return (
     <SearchContext.Provider

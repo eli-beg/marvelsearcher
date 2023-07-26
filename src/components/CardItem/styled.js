@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { CoverShadowImageToTop } from "../../styles/theme";
 
 export const Card = styled.div`
   width: 256px;
@@ -15,30 +16,7 @@ export const ItemImage = styled.img`
   object-fit: cover;
 `;
 
-export const CoverShadowToTop = styled.div`
-  position: absolute;
-  width: 256px;
-  height: 380px;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background: linear-gradient(
-    to top,
-    rgba(0, 0, 0, 0.7) 0%,
-    rgba(0, 0, 0, 0.2) 20%,
-    rgba(0, 0, 0, 0) 100%
-  );
-`;
-
-export const CoverShadowTopRight = styled.div`
-  position: absolute;
-  width: 256px;
-  height: 380px;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
+export const CoverShadowImageToRight = styled(CoverShadowImageToTop)`
   background: radial-gradient(
     circle at top right,
     rgba(0, 0, 0, 0.7) 0%,

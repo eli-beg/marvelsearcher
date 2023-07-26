@@ -41,12 +41,6 @@ export const ModalContent = styled.div`
   }
 `;
 
-export const Title = styled.div`
-  font-weight: 600;
-  font-size: 20px;
-  color: #505050;
-`;
-
 export const CloseIconContainer = styled.div`
   cursor: pointer;
 `;

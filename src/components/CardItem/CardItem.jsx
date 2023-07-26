@@ -1,12 +1,12 @@
 import {
   Card,
   ItemImage,
-  CoverShadowToTop,
-  CoverShadowTopRight,
   Title,
   FavIconContainer,
+  CoverShadowImageToRight,
 } from "./styled";
 import { FavIcon } from "../icons";
+import { CoverShadowImageToTop } from "../../styles/theme";
 
 export const CardItem = (props) => {
   const {
@@ -30,8 +30,8 @@ export const CardItem = (props) => {
       </FavIconContainer>
       <Title>{item.name}</Title>
       <ItemImage src={item.urlImage} alt="img not found" />
-      <CoverShadowToTop />
-      <CoverShadowTopRight />
+      <CoverShadowImageToTop />
+      <CoverShadowImageToRight />
     </Card>
   );
 };
