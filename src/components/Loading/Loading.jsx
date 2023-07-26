@@ -1,7 +1,12 @@
-import { LoadingContainer } from "./styled";
+import { LoadingSpin, LoadingContainer } from "./styled";
 
 const Loading = () => {
-  return <LoadingContainer />;
+  return (
+    <LoadingContainer>
+      {" "}
+      <LoadingSpin />
+    </LoadingContainer>
+  );
 };
 
 export default Loading;
