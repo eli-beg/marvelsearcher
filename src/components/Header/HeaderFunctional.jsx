@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import HeaderRender from "./HeaderRender";
 import { useNavigate } from "react-router-dom";
 import { isURL } from "../../utils/isUrl";
@@ -21,6 +21,7 @@ const HeaderFunctional = () => {
     isURL(inputValue)
       ? navigate(`/comic/${parseComicUrl(inputValue)}`)
       : navigate(`/character/${inputValue}`);
+    setInputValue("");
   };
   const navigateToFavoritesList = () => {
     getFavoriteList();
