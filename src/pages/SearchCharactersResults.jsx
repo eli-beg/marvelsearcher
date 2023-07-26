@@ -31,6 +31,10 @@ const SearchCharactersResults = () => {
     searchData(params.inputValue);
   }, [params.inputValue]);
 
+  useEffect(() => {
+    return () => closeModalComicsList();
+  }, []);
+
   return (
     <>
       {" "}

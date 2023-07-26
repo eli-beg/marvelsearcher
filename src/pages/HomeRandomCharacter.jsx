@@ -31,6 +31,10 @@ const HomeRandomCharacter = () => {
     checkCookies();
   }, []);
 
+  useEffect(() => {
+    return () => closeModalComicsList();
+  }, []);
+
   return (
     <>
       {isLoading ? (
