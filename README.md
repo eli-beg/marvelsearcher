@@ -75,7 +75,7 @@ To get a local copy up and running follow these simple example steps.
   - a random image of some character in card format
   - a search bar where you can enter names of characters or url of a comic book
 
-![Optinal Text](/src/assets/readmeImages/1.jpg)
+![Optinal Text](/src/assets/ReadMeImages/1.jpg)
 
 ---
 
@@ -83,21 +83,21 @@ To get a local copy up and running follow these simple example steps.
 
 - When you perform a search the results will be displayed in cards format, with the possibility to see their related comics and also to store the search in favorites.
 
-## ![Optinal Text](/src/assets/readmeImages/2.jpg)
+## ![Optinal Text](/src/assets/ReadMeImages/2.jpg)
 
-![Optinal Text](/src/assets/readmeImages/3.jpg)
+![Optinal Text](/src/assets/ReadMeImages/3.jpg)
 
 ### Comic Preview Screen
 
 - You can also see the details of each comic, with its image and more information about its creators.
 
-![Optinal Text](/src/assets/readmeImages/4.jpg)
+![Optinal Text](/src/assets/ReadMeImages/4.jpg)
 
 ### Favorites Screen
 
 - In your favorites list you can delete the characters you decide to delete
 
-![Optinal Text](/src/assets/readmeImages/5.jpg)
+![Optinal Text](/src/assets/ReadMeImages/5.jpg)
 
 ---
 
