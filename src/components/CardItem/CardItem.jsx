@@ -1,9 +1,9 @@
 import {
   Card,
   ItemImage,
-  Title,
   FavIconContainer,
   CoverShadowImageToRight,
+  CustomizedTitle,
 } from "./styled";
 import { FavIcon } from "../icons";
 import { CoverShadowImageToTop } from "../../styles/theme";
@@ -28,7 +28,7 @@ export const CardItem = (props) => {
       >
         <FavIcon color={"white"} size={"25px"} isFilled={item.isFavorite} />
       </FavIconContainer>
-      <Title>{item.name}</Title>
+      <CustomizedTitle>{item.name}</CustomizedTitle>
       <ItemImage src={item.urlImage} alt="img not found" />
       <CoverShadowImageToTop />
       <CoverShadowImageToRight />

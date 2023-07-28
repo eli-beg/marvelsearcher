@@ -6,5 +6,8 @@ export const setCookie = (value) => {
 
 export const getCookie = (value) => {
   const cookieValue = Cookies.get(value);
-  return cookieValue !== undefined ? JSON.parse(cookieValue) : null;
+
+  if (cookieValue) {
+    return JSON.parse(cookieValue);
+  }
 };
