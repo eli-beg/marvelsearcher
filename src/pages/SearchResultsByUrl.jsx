@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { SearchContext } from "../context/SearchContext";
 import CardComicPreview from "../components/CardComicPreview/CardComicPreview";
 import Loading from "../components/Loading/Loading";
+import { Section } from "../styles/theme";
 
 const SearchResultsByUrl = () => {
   const {
@@ -22,13 +23,13 @@ const SearchResultsByUrl = () => {
   }, [params.id]);
 
   return (
-    <>
+    <Section id="search-comics-results">
       {isLoading ? (
         <Loading />
       ) : (
         <CardComicPreview comicDataPreview={comicDataPreview} />
       )}
-    </>
+    </Section>
   );
 };
 

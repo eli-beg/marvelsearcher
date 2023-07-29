@@ -5,6 +5,7 @@ import { FavoritesContext } from "../context/FavoritesContext";
 import { SearchContext } from "../context/SearchContext";
 import ComicsListFromCharacter from "../components/ComicsListFromCharacter/ComicsListFromCharacter";
 import { useNavigate } from "react-router-dom";
+import { Section } from "../styles/theme";
 
 const FavoritesList = () => {
   const {
@@ -30,7 +31,7 @@ const FavoritesList = () => {
     navigate(`/comic/${id}`);
   };
   return (
-    <>
+    <Section id="favorites-list">
       {isLoadingFavorites ? (
         <Loading />
       ) : (
@@ -48,7 +49,7 @@ const FavoritesList = () => {
         isLoadingModal={isLoadingModal}
         navigateToComicPreview={navigateToComicPreview}
       />
-    </>
+    </Section>
   );
 };
 

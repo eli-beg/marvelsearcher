@@ -7,10 +7,11 @@ const CardsGrid = (props) => {
     openModalComicsList,
     handleAddOrRemoveFavorite,
     checkIsFavoriteIcon,
+    gridColumns,
   } = props;
 
   return (
-    <CardsGridContainer>
+    <CardsGridContainer gridColumns={gridColumns}>
       {items &&
         items.map((item) => {
           return (

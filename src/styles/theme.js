@@ -1,6 +1,6 @@
 import { styled } from "styled-components";
 
-const Title = styled.div`
+const Title = styled.h3`
   font-weight: 600;
   font-size: 25px;
   color: ${(props) => props.theme.light};
@@ -16,12 +16,6 @@ const Description = styled.p`
   font-weight: 400;
   line-height: 1.4;
   color: ${(props) => props.theme.light};
-`;
-const MainContainer = styled.main`
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
 `;
 
 const CoverShadowImageToTop = styled.div`
@@ -40,6 +34,11 @@ const CoverShadowImageToTop = styled.div`
   );
 `;
 
+const Section = styled.section`
+  display: flex;
+  justify-content: center;
+`;
+
 const theme = {
   light: "#3E3E3E",
   dark: "red",
@@ -56,5 +55,5 @@ export {
   Description,
   invertTheme,
   CoverShadowImageToTop,
-  MainContainer,
+  Section,
 };

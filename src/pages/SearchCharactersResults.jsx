@@ -6,6 +6,7 @@ import CardsGrid from "../components/CardsGrid/CardsGrid";
 import ComicsListFromCharacter from "../components/ComicsListFromCharacter/ComicsListFromCharacter";
 import Loading from "../components/Loading/Loading";
 import { FavoritesContext } from "../context/FavoritesContext";
+import { Section } from "../styles/theme";
 
 const SearchCharactersResults = () => {
   const {
@@ -36,7 +37,7 @@ const SearchCharactersResults = () => {
   }, []);
 
   return (
-    <>
+    <Section id="search-characters-results">
       {" "}
       {isLoading ? (
         <Loading />
@@ -55,7 +56,7 @@ const SearchCharactersResults = () => {
         isLoadingModal={isLoadingModal}
         navigateToComicPreview={navigateToComicPreview}
       />
-    </>
+    </Section>
   );
 };
 

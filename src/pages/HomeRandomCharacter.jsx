@@ -5,6 +5,7 @@ import { SearchContext } from "../context/SearchContext";
 import { FavoritesContext } from "../context/FavoritesContext";
 import ComicsListFromCharacter from "../components/ComicsListFromCharacter/ComicsListFromCharacter";
 import { useNavigate } from "react-router-dom";
+import { Section } from "../styles/theme";
 
 const HomeRandomCharacter = () => {
   const {
@@ -29,6 +30,7 @@ const HomeRandomCharacter = () => {
     return () => cleanRandomCharacterCache();
   }, []);
 
+  // esto podria ir en el contexto
   useEffect(() => {
     checkCookies();
   }, []);
@@ -42,11 +44,12 @@ const HomeRandomCharacter = () => {
   };
 
   return (
-    <>
+    <Section id="home-random-character">
       {isLoading ? (
         <Loading />
       ) : (
         <CardsGrid
+          gridColumns="256px"
           items={randomCharacter}
           openModalComicsList={openModalComicsList}
           handleAddOrRemoveFavorite={handleAddOrRemoveFavorite}
@@ -60,7 +63,7 @@ const HomeRandomCharacter = () => {
         isLoadingModal={isLoadingModal}
         navigateToComicPreview={navigateToComicPreview}
       />
-    </>
+    </Section>
   );
 };
 
