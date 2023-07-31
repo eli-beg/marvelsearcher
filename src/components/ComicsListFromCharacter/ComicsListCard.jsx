@@ -9,7 +9,15 @@ import {
 } from "./styledCard";
 
 const ComicsListCard = (props) => {
-  const { item, navigateToComicPreview } = props;
+  const {
+    item,
+    navigateToComicPreview,
+    handleAddOrRemoveFavoriteComic,
+    checkIsFavoriteIcon,
+    selectedCard,
+    openModalComicsList,
+    getFavoriteList,
+  } = props;
 
   return (
     <CardContainer onClick={() => navigateToComicPreview(item.id)}>
@@ -17,8 +25,14 @@ const ComicsListCard = (props) => {
       <Content>
         <CustomizedTitle>
           {item.title}
-          <IconContainer>
-            <FavIcon color={"grey"} size={"16px"} />
+          <IconContainer
+            onClick={(event) => {
+              handleAddOrRemoveFavoriteComic(event, item);
+              checkIsFavoriteIcon(item);
+              openModalComicsList(selectedCard);
+            }}
+          >
+            <FavIcon color={"grey"} size={"16px"} isFilled={item.isFavorite} />
           </IconContainer>
         </CustomizedTitle>
         <CustomizedDescription>{item.description}</CustomizedDescription>

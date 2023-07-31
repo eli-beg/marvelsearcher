@@ -20,7 +20,11 @@ const SearchCharactersResults = () => {
     isLoadingModal,
     checkIsFavoriteIcon,
   } = useContext(SearchContext);
-  const { handleAddOrRemoveFavorite } = useContext(FavoritesContext);
+  const {
+    handleAddOrRemoveFavorite,
+    handleAddOrRemoveFavoriteComic,
+    getFavoritesList,
+  } = useContext(FavoritesContext);
   const navigate = useNavigate();
   const params = useParams();
 
@@ -55,6 +59,10 @@ const SearchCharactersResults = () => {
         closeModalComicsList={closeModalComicsList}
         isLoadingModal={isLoadingModal}
         navigateToComicPreview={navigateToComicPreview}
+        handleAddOrRemoveFavoriteComic={handleAddOrRemoveFavoriteComic}
+        checkIsFavoriteIcon={checkIsFavoriteIcon}
+        openModalComicsList={openModalComicsList}
+        getFavoritesList={getFavoritesList}
       />
     </Section>
   );

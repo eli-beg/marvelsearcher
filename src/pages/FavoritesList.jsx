@@ -10,9 +10,11 @@ import { Section } from "../styles/theme";
 const FavoritesList = () => {
   const {
     favoritesList,
+    favoritesListComics,
     isLoadingFavorites,
     getFavoriteList,
     handleAddOrRemoveFavorite,
+    handleAddOrRemoveFavoriteComic,
   } = useContext(FavoritesContext);
   const {
     openModalComicsList,
@@ -30,17 +32,26 @@ const FavoritesList = () => {
   const navigateToComicPreview = (id) => {
     navigate(`/comic/${id}`);
   };
+
   return (
     <Section id="favorites-list">
       {isLoadingFavorites ? (
         <Loading />
       ) : (
-        <CardsGrid
-          items={favoritesList}
-          openModalComicsList={openModalComicsList}
-          handleAddOrRemoveFavorite={handleAddOrRemoveFavorite}
-          checkIsFavoriteIcon={checkIsFavoriteIcon}
-        />
+        <div>
+          <CardsGrid
+            items={favoritesList}
+            openModalComicsList={openModalComicsList}
+            handleAddOrRemoveFavorite={handleAddOrRemoveFavorite}
+            checkIsFavoriteIcon={checkIsFavoriteIcon}
+          />
+          <CardsGrid
+            items={favoritesListComics}
+            openModalComicsList={openModalComicsList}
+            handleAddOrRemoveFavorite={handleAddOrRemoveFavorite}
+            checkIsFavoriteIcon={checkIsFavoriteIcon}
+          />
+        </div>
       )}
       <ComicsListFromCharacter
         selectedCard={selectedCard}
@@ -48,6 +59,10 @@ const FavoritesList = () => {
         closeModalComicsList={closeModalComicsList}
         isLoadingModal={isLoadingModal}
         navigateToComicPreview={navigateToComicPreview}
+        handleAddOrRemoveFavoriteComic={handleAddOrRemoveFavoriteComic}
+        checkIsFavoriteIcon={checkIsFavoriteIcon}
+        openModalComicsList={openModalComicsList}
+        getFavoriteList={getFavoriteList}
       />
     </Section>
   );

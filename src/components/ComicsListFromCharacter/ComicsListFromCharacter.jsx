@@ -6,6 +6,11 @@ const ComicsListFromCharacter = (props) => {
     closeModalComicsList,
     isLoadingModal,
     navigateToComicPreview,
+    handleAddOrRemoveFavoriteComic,
+    checkIsFavoriteIcon,
+    comicsListByCharacter,
+    openModalComicsList,
+    getFavoriteList,
   } = props;
 
   return (
@@ -16,6 +21,11 @@ const ComicsListFromCharacter = (props) => {
           closeModalComicsList={closeModalComicsList}
           isLoadingModal={isLoadingModal}
           navigateToComicPreview={navigateToComicPreview}
+          handleAddOrRemoveFavoriteComic={handleAddOrRemoveFavoriteComic}
+          checkIsFavoriteIcon={checkIsFavoriteIcon}
+          comicsListByCharacter={comicsListByCharacter}
+          openModalComicsList={openModalComicsList}
+          getFavoriteList={getFavoriteList}
         />
       ) : null}
     </>

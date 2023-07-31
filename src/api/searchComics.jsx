@@ -17,10 +17,10 @@ const getComicsListById = (id) => {
   );
 };
 
-const getComictById = (id) => {
+const getComicById = (id) => {
   return axios.get(
     `${baseURL}/comics/${id}?ts=1000&apikey=${apiKey}&hash=${apiHash}`
   );
 };
 
-export { getComicsByName, getComicsListById, getComictById };
+export { getComicsByName, getComicsListById, getComicById };

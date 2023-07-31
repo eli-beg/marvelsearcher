@@ -18,11 +18,15 @@ const HomeRandomCharacter = () => {
     comicsListByCharacter,
     closeModalComicsList,
     isLoadingModal,
-
+    checkIsFavoriteIcon,
     checkIsFavoriteIconRandomCharacter,
   } = useContext(SearchContext);
-  const { checkCookies, handleAddOrRemoveFavorite } =
-    useContext(FavoritesContext);
+  const {
+    checkCookies,
+    handleAddOrRemoveFavorite,
+    getFavoritesList,
+    handleAddOrRemoveFavoriteComic,
+  } = useContext(FavoritesContext);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -49,7 +53,7 @@ const HomeRandomCharacter = () => {
         <Loading />
       ) : (
         <CardsGrid
-          gridColumns="256px"
+          gridcolumns="256px"
           items={randomCharacter}
           openModalComicsList={openModalComicsList}
           handleAddOrRemoveFavorite={handleAddOrRemoveFavorite}
@@ -62,6 +66,10 @@ const HomeRandomCharacter = () => {
         closeModalComicsList={closeModalComicsList}
         isLoadingModal={isLoadingModal}
         navigateToComicPreview={navigateToComicPreview}
+        handleAddOrRemoveFavoriteComic={handleAddOrRemoveFavoriteComic}
+        checkIsFavoriteIcon={checkIsFavoriteIcon}
+        openModalComicsList={openModalComicsList}
+        getFavoritesList={getFavoritesList}
       />
     </Section>
   );

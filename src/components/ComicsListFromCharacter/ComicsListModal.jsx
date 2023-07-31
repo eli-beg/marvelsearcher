@@ -9,10 +9,20 @@ const ComicsListModal = (props) => {
     closeModalComicsList,
     isLoadingModal,
     navigateToComicPreview,
+    handleAddOrRemoveFavoriteComic,
+    checkIsFavoriteIcon,
+    comicsListByCharacter,
+    openModalComicsList,
+    getFavoriteList,
   } = props;
 
   return (
-    <ModalBackdrop onClick={closeModalComicsList}>
+    <ModalBackdrop
+      onClick={() => {
+        closeModalComicsList;
+        getFavoriteList();
+      }}
+    >
       <ModalContainer>
         <ModalHeader
           title={selectedCard.name}
@@ -22,7 +32,15 @@ const ComicsListModal = (props) => {
         {isLoadingModal ? (
           <Loading />
         ) : (
-          <ComicsList navigateToComicPreview={navigateToComicPreview} />
+          <ComicsList
+            navigateToComicPreview={navigateToComicPreview}
+            handleAddOrRemoveFavoriteComic={handleAddOrRemoveFavoriteComic}
+            checkIsFavoriteIcon={checkIsFavoriteIcon}
+            comicsListByCharacter={comicsListByCharacter}
+            openModalComicsList={openModalComicsList}
+            selectedCard={selectedCard}
+            getFavoriteList={getFavoriteList}
+          />
         )}
       </ModalContainer>
     </ModalBackdrop>

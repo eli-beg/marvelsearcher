@@ -1,15 +1,16 @@
-import { createContext, useEffect, useState, useCallback } from "react";
+import { createContext, useState, useCallback } from "react";
 import {
   getCharacterByName,
   getRandomCharacter,
   getTotalNumberOfCharacters,
 } from "../api/searchCharacters";
-import { getComicsListById, getComictById } from "../api/searchComics";
+import { getComicsListById, getComicById } from "../api/searchComics";
 import { parseCharacterData } from "../utils/parseCharacterData";
-import { parseComicsData } from "../utils/parseComicsData";
+
 import { getRandomIndex } from "../utils/getRandomIndex";
 import { parseComicDataPreview } from "../utils/parseComicDataPreview";
 import { checkIsFavorite } from "../utils/checkIsFavorite";
+import { parseComicData } from "../utils/parseComicData";
 
 export const SearchContext = createContext();
 
@@ -34,7 +35,7 @@ export const SearchProvider = ({ children }) => {
         const { data } = await getRandomCharacter(randomIndex);
         if (data.data.results.length) {
           // Function to check if the character is favorite and set the atributte isFavorite en true, and then parse the data
-          let value = checkIsFavorite(data.data.results[0].id);
+          let value = checkIsFavorite("favorites", data.data.results[0].id);
           const character = value
             ? { ...parseCharacterData(data.data.results[0]), isFavorite: true }
             : parseCharacterData(data.data.results[0]);
@@ -63,7 +64,7 @@ export const SearchProvider = ({ children }) => {
       const { data } = await getCharacterByName(inputValue);
       const characters = data.data.results.map((c) => {
         // Function to check if the character is favorite and set the atributte isFavorite en true, and then parse the data
-        let value = checkIsFavorite(c.id);
+        let value = checkIsFavorite("favorites", c.id);
         return value
           ? { ...parseCharacterData(c), isFavorite: true }
           : parseCharacterData(c);
@@ -81,8 +82,14 @@ export const SearchProvider = ({ children }) => {
     setIsLoadingModal(true);
     try {
       const { data } = await getComicsListById(id);
-      const arrayComics = parseComicsData(data.data.results);
-      setComicsListByCharacter(arrayComics);
+      const comics = data.data.results.map((c) => {
+        // Function to check if the comic is favorite and set the atributte isFavorite en true, and then parse the data
+        let value = checkIsFavorite("favorites_comics", c.id);
+        return value
+          ? { ...parseComicData(c), isFavorite: true }
+          : parseComicData(c);
+      });
+      setComicsListByCharacter(comics);
     } catch (error) {
       console.log(error);
     } finally {
@@ -94,7 +101,7 @@ export const SearchProvider = ({ children }) => {
   const searchDataComicByUrl = useCallback(async (id) => {
     setIsLoading(true);
     try {
-      const { data } = await getComictById(id);
+      const { data } = await getComicById(id);
       const parseado = parseComicDataPreview(data.data.results[0]);
       setComicDataPreview(parseado);
     } catch (error) {
@@ -115,25 +122,40 @@ export const SearchProvider = ({ children }) => {
   };
 
   // Function to check in cookies if the card is a favorite character
-  const checkIsFavoriteIcon = (id) => {
-    const value = checkIsFavorite(id);
+  const checkIsFavoriteIcon = (item) => {
+    if (!item.isComic) {
+      const value = checkIsFavorite("favorites", item.id);
 
-    if (value) {
-      const updatedDataCharacters = dataCharacters.map((character) =>
-        character.id === id ? { ...character, isFavorite: true } : character
-      );
-      setDataCharacters(updatedDataCharacters);
-    } else {
-      const updatedDataCharacters = dataCharacters.map((character) =>
-        character.id === id ? { ...character, isFavorite: false } : character
-      );
-      setDataCharacters(updatedDataCharacters);
+      if (value) {
+        const updatedDataCharacters = dataCharacters.map((character) =>
+          character.id === item.id
+            ? { ...character, isFavorite: true }
+            : character
+        );
+        setDataCharacters(updatedDataCharacters);
+      } else {
+        const updatedDataCharacters = dataCharacters.map((character) =>
+          character.id === item.id
+            ? { ...character, isFavorite: false }
+            : character
+        );
+        setDataCharacters(updatedDataCharacters);
+      }
+    } else if (item.isComic) {
+      checkIsFavorite("favorites_comics", item.id)
+        ? setComicsListByCharacter([
+            { ...comicsListByCharacter, isFavorite: true },
+          ])
+        : setComicsListByCharacter([
+            { ...comicsListByCharacter, isFavorite: false },
+          ]);
     }
   };
 
-  const checkIsFavoriteIconRandomCharacter = (id) => {
+  const checkIsFavoriteIconRandomCharacter = (item) => {
     const randomCharacterItem = randomCharacter[0];
-    checkIsFavorite(id)
+    console.log(randomCharacter);
+    checkIsFavorite("favorites", item.id)
       ? setRandomCharacter([{ ...randomCharacterItem, isFavorite: true }])
       : setRandomCharacter([{ ...randomCharacterItem, isFavorite: false }]);
   };
@@ -157,6 +179,7 @@ export const SearchProvider = ({ children }) => {
         checkIsFavoriteIcon,
         checkIsFavoriteIconRandomCharacter,
         cleanComicsDataPreview,
+        searchDataComics,
       }}
     >
       {children}

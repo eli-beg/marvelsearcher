@@ -7,6 +7,7 @@ export const parseComicsData = (comicsArray) => {
       title: comic.title,
       description: comic.description,
       urlImage: getImagePath(comic.thumbnail.path, comic.thumbnail.extension),
+      isFavorite: false,
     };
   });
 };

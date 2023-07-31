@@ -10,5 +10,6 @@ export const parseComicDataPreview = (comic) => {
     creators: parseCreactorsComic(comic.creators.items),
     description: comic.description,
     urlImage: getImagePath(comic.thumbnail.path, comic.thumbnail.extension),
+    isFavorite: false,
   };
 };

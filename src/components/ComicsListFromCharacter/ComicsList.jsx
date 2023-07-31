@@ -4,8 +4,15 @@ import ComicsListCard from "./ComicsListCard";
 import { ModalContent } from "./styled";
 
 const ComicsList = (props) => {
-  const { comicsListByCharacter } = useContext(SearchContext);
-  const { navigateToComicPreview } = props;
+  const {
+    navigateToComicPreview,
+    handleAddOrRemoveFavoriteComic,
+    checkIsFavoriteIcon,
+    comicsListByCharacter,
+    openModalComicsList,
+    selectedCard,
+    getFavoriteList,
+  } = props;
 
   return (
     <>
@@ -16,6 +23,11 @@ const ComicsList = (props) => {
                 key={item.id}
                 item={item}
                 navigateToComicPreview={navigateToComicPreview}
+                handleAddOrRemoveFavoriteComic={handleAddOrRemoveFavoriteComic}
+                checkIsFavoriteIcon={checkIsFavoriteIcon}
+                openModalComicsList={openModalComicsList}
+                selectedCard={selectedCard}
+                getFavoriteList={getFavoriteList}
               />
             ))
           : "No hemos encontrado comics para este personaje"}

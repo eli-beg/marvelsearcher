@@ -22,8 +22,7 @@ export const CardItem = (props) => {
         onClick={(event) => {
           // Function to add or remove character from favorite list in favoritesContext and cookies
           handleAddOrRemoveFavorite(event, item);
-
-          checkIsFavoriteIcon(item.id);
+          checkIsFavoriteIcon(item);
         }}
       >
         <FavIcon color={"white"} size={"25px"} isFilled={item.isFavorite} />

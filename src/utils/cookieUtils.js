@@ -1,7 +1,7 @@
 import Cookies from "js-cookie";
 
-export const setCookie = (value) => {
-  Cookies.set("favorites", value);
+export const setCookie = (key, value) => {
+  Cookies.set(key, value);
 };
 
 export const getCookie = (value) => {
